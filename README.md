@@ -2,7 +2,7 @@
 
 Recently I've been working on system testing some [node.js](http://nodejs.org) microservices, by spinning them up in a Swarm of [Docker](https://www.docker.com) containers and then driving them from a [Jest](https://facebook.github.io/jest) test script.
 
-I've been using Canned to stub other systems that are called but I've come across two problems:
+I've been using [Canned](https://www.npmjs.com/package/canned) to stub other systems that are called but I've come across two problems:
 
 1.  Test config is spread between my test scripts and my canned configuration.
 2.  I cannot make assertions on the calls that have been made to Canned.
@@ -19,7 +19,9 @@ To change the port use the `PORT` environment variable and to change the path us
 
 ## Configuring endpoints
 
-POST JSON configuration to http://localhost:3000/stub
+POST JSON configuration e.g.
+
+    curl -XPOST --header "Content-Type: application/json" -d @input.json http://localhost:3000/stub
 
 The following JSON will set up the /bar endpoint to receive GET calls. All calls to GET with receive the specified response.
 
@@ -64,7 +66,9 @@ Attempting to configure an endpoint that has already been configured (and not cl
 
 ## Checking calls
 
-Use HTTP GET to http://localhost:3000/stub
+Use HTTP GET e.g.
+
+     curl -XGET http://localhost:3000/stub
 
 This will return a JSON object as follows:
 
@@ -99,4 +103,8 @@ Each path and HTTP method that has been invoked has an array of objects showing 
 
 ## Clearing configuration
 
-Use a HTTP DELETE http://localhost:3000/stub
+The stub configuration and request history can be cleared by issuing a HTTP DELETE e.g.
+
+    curl -XDELETE http://localhost:3000/stub
+
+Running this within a `beforeEach()` block in a test script will ensure that the stub is cleared down between tests.
