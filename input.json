@@ -1,5 +1,5 @@
 {
-  "path": "bar",
+  "path": "/bar",
   "method": "GET",
   "response": [
     {
