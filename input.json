@@ -1,0 +1,18 @@
+{
+  "path": "bar",
+  "method": "GET",
+  "response": [
+    {
+      "status": 200,
+      "type": "json",
+      "headers": {
+        "header1": "value1",
+        "header2": "value2"
+      },
+      "body": "{\"a\":\"b\"}"
+    },
+    {
+      "status": 500
+    }
+  ]
+}
