@@ -1,0 +1,27 @@
+{
+  "name": "web-service-stub",
+  "version": "1.0.0",
+  "description": "Example web service stub, allows calls to be captures for verification",
+  "main": "src/index.js",
+  "scripts": {
+    "test": "test",
+    "pretty": "prettier --write \"src/**/*.js\"",
+    "start": "node src/index.js",
+    "lint": "npm run pretty && eslint src/**/*.js"
+  },
+  "author": "Richard Miskin",
+  "license": "MIT",
+  "dependencies": {
+    "express": "^4.16.3"
+  },
+  "devDependencies": {
+    "eslint": "^4.19.0",
+    "eslint-config-airbnb": "^16.1.0",
+    "eslint-config-prettier": "^2.9.0",
+    "eslint-plugin-import": "^2.9.0",
+    "eslint-plugin-jsx-a11y": "^6.0.3",
+    "eslint-plugin-prettier": "^2.6.0",
+    "eslint-plugin-react": "^7.7.0",
+    "prettier": "^1.11.1"
+  }
+}
